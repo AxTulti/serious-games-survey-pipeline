@@ -1,61 +1,54 @@
-# Procesamiento y Segmentación de Datos de Evaluación de Videojuegos Serios
+# Serious Games Survey: Data Processing and Segmentation
 
-## Integrantes
-- Ángel Nicolás Landa Tapia
-- Ximena Paola Pérez Sánchez
-- Axel Yael Rodríguez Romero
-- Emilio Estrada Pérez
-- Juan Diego Rodríguez Espinoza
+A modular Python command-line tool that loads, cleans, segments, analyzes and exports survey data evaluating the features of serious video games.
 
-## Descripción
-Este proyecto implementa un script en Python para el procesamiento de datos provenientes de una encuesta sobre la evaluación de características de videojuegos serios. El sistema realiza la carga, limpieza, segmentación interactiva y exportación de los datos mediante una estructura modular basada en funciones.
+**Team project, Tecnológico de Monterrey:** Ángel Nicolás Landa Tapia, Ximena Paola Pérez Sánchez, Axel Yael Rodríguez Romero, Emilio Estrada Pérez, Juan Diego Rodríguez Espinoza.
+<!-- Optional: add a line with your own contributions, e.g. **My contributions:** ... -->
 
-## Objetivo
-Desarrollar una herramienta que permita:
-1. Cargar un archivo de respuestas en formato `.xlsx`.
-2. Aplicar filtros de limpieza según criterios de consentimiento informado y experiencia con videojuegos.
-3. Permitir la segmentación interactiva por género y rango de edad.
-4. Generar conjuntos de datos específicos para análisis.
-5. Exportar los resultados a un archivo Excel con múltiples hojas.
+## Features
 
-## Estructura del Proyecto
-```text
+1. Loads survey responses from an `.xlsx` file.
+2. Filters responses by informed consent and prior video game experience.
+3. Segments respondents interactively by gender and age range.
+4. Builds separate datasets for feature importance and feature ratings.
+5. Computes means and standard deviations of the evaluated features.
+6. Exports the results to a multi-sheet Excel file.
+
+## Project structure
+
+```
 .
-├── clean.py                 # Carga y limpieza de datos
-├── cly.py                   # Interfaz de segmentación interactiva en consola
-├── segmentation.py          # Segmentación por género y edad
-├── segregation.py           # Creación de DataFrames de importancia y calificaciones
-├── deportation.py           # Exportación de resultados a Excel
-├── main.py                  # Script principal de ejecución
-└── respuesta_de_encuestas.xlsx  # Archivo de entrada
+├── main.py           # Entry point
+├── clean.py          # Data loading and cleaning
+├── cli.py            # Interactive console interface for segmentation
+├── segment.py        # Segmentation by gender and age range
+├── group.py          # Builds the importance and ratings DataFrames
+├── analyze.py        # Mean and standard deviation analysis
+├── export.py         # Export of results to Excel
+└── requirements.txt
 ```
 
-## Requisitos
-- Python 3.9 o superior.
+The survey data is excluded from the repository for privacy.
 
-## Dependencias
-Instalar las siguientes librerías antes de ejecutar el proyecto:
+## Getting started
+
+Requires Python 3.9 or later.
 
 ```bash
-
 pip install -r requirements.txt
-```
-
-## Ejecución
-Para ejecutar el proyecto, utilice el siguiente comando en la terminal:
-
-```bash
 python main.py
 ```
 
-El archivo de entrada `respuesta_de_encuestas.xlsx` debe ubicarse en el mismo directorio del proyecto o especificarse correctamente en la linea de comandos.
+Place the input file `respuesta_de_encuestas.xlsx` in the project directory, or pass its path on the command line.
 
-## Salida
-El script genera un archivo denominado `resultados_encuesta.xlsx` en el directorio de ejecución, el cual contiene tres hojas:
+## Output
 
-- **Datos Completos:** incluye todas las columnas seleccionadas después de la limpieza y segmentación.
-- **Importancia:** contiene las valoraciones de importancia de los atributos evaluados.
-- **Calificaciones:** contiene las calificaciones de los atributos y la calificación global del videojuego.
+The tool generates `resultados_encuesta.xlsx` with three sheets:
 
-## Licencia
-Este proyecto se desarrolla con fines académicos.
+- **Full Data:** all selected columns after cleaning and segmentation.
+- **Importance:** importance ratings of the evaluated features.
+- **Ratings:** feature ratings and the overall game rating.
+
+## License
+
+Developed for academic purposes.
